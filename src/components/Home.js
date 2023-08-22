@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import "../App.css";
 import  { useContext, useState } from 'react'
-import img from "../assets/img2.jpeg"
+// import img from "../assets/img2.jpeg"
 import img2 from "../assets/img3.jpeg"
 import "./Allcss.css"
-import { Link, Navigate } from 'react-router-dom'
-import MetamaskPNG from "../assets/metamask.png"
-import AppPNG from "../assets/app.png"
+import { Link} from 'react-router-dom'
+// import MetamaskPNG from "../assets/metamask.png"
+// import AppPNG from "../assets/app.png"
 import { AppState } from '../App';
 
 
@@ -42,14 +42,14 @@ useEffect(()=>{
   //     setOwn(true):
   //     setOwn(false)
   //  }
-  if(owner.toLowerCase()==accs[0].toLowerCase()){
+  if(owner.toLowerCase()===accs[0].toLowerCase()){
     setOwn(true);
   }
     
     
   }
 fetch();
-},[App.account,App.owner,own])
+},[App.account,App.owner,own,App.ethereum,App.contract])
  
   return (
 <>

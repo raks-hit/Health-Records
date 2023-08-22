@@ -56,6 +56,11 @@
 			},
 			{
 				"internalType": "string",
+				"name": "hadd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "mobile",
 				"type": "string"
 			},
@@ -157,6 +162,11 @@
 					{
 						"internalType": "string",
 						"name": "email",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "hadd",
 						"type": "string"
 					},
 					{

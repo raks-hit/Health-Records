@@ -1,8 +1,8 @@
 import React from 'react'
 import '../App.css';
-import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
-import {useState,useContext, createContext, useEffect} from 'react';
+// import { Button, Form } from 'react-bootstrap';
+// import { Link } from 'react-router-dom'
+import {useState,useContext} from 'react';
 import {ethers} from 'ethers';
 import { AppState } from "../App";
 import Loader from './Loader'
@@ -62,7 +62,7 @@ export const PatientData = () => {
       if(ipfsId){
         try{
             // const add=await contract.getPatientData()
-            await contract.addPatientData(accounts[0],desc,doc,date,ipfsId);
+            await contract.addPatientData(accounts[0],desc,doc,date.toString(),ipfsId);
             console.log("success");
         }
         catch(error){
@@ -88,7 +88,7 @@ export const PatientData = () => {
        <input type='text' placeholder='Enter Description of illness' onChange={(e)=>{setDesc(e.target.value)}}/>
       
        <input type='text' placeholder='Enter Name of Physician' onChange={(e)=>setDoc(e.target.value)}/>
-       <input type='text' placeholder='Enter Date in DD/MM/YYYY' onChange={(e)=>setDate(e.target.value)}/>
+       <input type='date' placeholder='Enter Date in DD/MM/YYYY' onChange={(e)=>setDate(e.target.value)}/>
        <input className='file' type='file'  onChange={(e)=>setFile(e.target.files[0])}/>
        <button onClick={Register}>Register</button>
 

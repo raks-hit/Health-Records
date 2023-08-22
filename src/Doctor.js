@@ -8,6 +8,7 @@ import "./components/Allcss.css"
 export const Doctor = () => {
     const [aadhar,setAadhar]=useState();
     const App = useContext(AppState);
+    const [add,setAdd]=useState(false);
     // const ethereum=App.ethereum;
     // const cadd=App.cadd;
     const [pDetails,setPatientDetails]=useState([]);
@@ -27,6 +28,14 @@ export const Doctor = () => {
         console.log(acc);
         const ydata=await contract.getPatientData(acc);
         const xdata=await contract.getDetails(acc);
+        console.log(xdata.name.length);
+        if(xdata.name.length>0){
+          setAdd(true);
+        }
+        else{
+          setAdd(false);
+        }
+
         var y = [...ydata].reverse();
 
         // console.log(data.mobile);
@@ -75,7 +84,7 @@ export const Doctor = () => {
                     <td><div className='idata'>Age:</div><div className='pdata'>{pDetails.age}</div></td>
                   </tr>
                   <tr>
-                    <td><div className='idata'>Address:</div><div className='pdata'>{pDetails.address}</div></td>
+                    <td><div className='idata'>Address:</div><div className='pdata'>{pDetails.hadd}</div></td>
                     <td> <div className='idata'>Email:</div><div className='pdata'>{pDetails.email}</div> </td>
                   </tr>
                   <tr>
@@ -84,7 +93,12 @@ export const Doctor = () => {
                   </tr>
                 </table>
                 </div>
+                {
+                  add ?
                 <Link className='adata' to={'/PatientData'}>Add Data</Link>
+                :
+                <div></div>
+}
         <div className='tab2'>
           {/* {data.map((e)=>{
             return (

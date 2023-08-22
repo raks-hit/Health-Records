@@ -39,7 +39,7 @@ export const Patient = () => {
                 
                 var y = [...ydata].reverse();
                 console.log(data.mobile);
-                if(ydata.length==0){
+                if(ydata.length===0){
                   setnodata(true);
                 }
                 setPatientData(y);
@@ -58,7 +58,7 @@ export const Patient = () => {
     <>
     { App.login ?
 
-    <div className='alignp' >
+    <div className='root' >
         {/* <input type="number" placeholder='Enter Aadhar number of Patient' onChange={(e)=>{
           setAadhar(e.target.value)
         }}/>
@@ -81,7 +81,7 @@ export const Patient = () => {
                     <td><div className='idata'>Age:</div><div className='pdata'>{pDetails.age}</div></td>
                   </tr>
                   <tr>
-                    <td><div className='idata'>Address:</div><div className='pdata'>{pDetails.address}</div></td>
+                    <td><div className='idata'>Address:</div><div className='pdata'>{pDetails.hadd}</div></td>
                     <td> <div className='idata'>Email:</div><div className='pdata'>{pDetails.email}</div> </td>
                   </tr>
                   <tr>

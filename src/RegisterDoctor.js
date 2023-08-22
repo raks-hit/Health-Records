@@ -24,6 +24,7 @@ export const RegisterDoctor = () => {
       
         try{
           const e=  await App.contract.addDoctor(dname,qual,address,reg,aadhar,wadd);
+          window.location.href='/Home';
           setDname("");
           setQual("");
           setAddress("");
@@ -46,11 +47,11 @@ export const RegisterDoctor = () => {
     <div className='root'>
     <div className='head'>Register Doctor</div>
     <div className='align'>
-       <input type='text' placeholder='Enter your name' onChange={(e)=>{setDname(e.target.value)}}/>
-       <input type='text' placeholder='Enter your qualification' onChange={(e)=>{setQual(e.target.value)}}/>
-       <input type='text' placeholder='Enter your Address' onChange={(e)=>setAddress(e.target.value)}/>
+       <input type='text' placeholder='Enter Doctor name' onChange={(e)=>{setDname(e.target.value)}}/>
+       <input type='text' placeholder='Enter  qualification' onChange={(e)=>{setQual(e.target.value)}}/>
+       <input type='text' placeholder='Enter  Address' onChange={(e)=>setAddress(e.target.value)}/>
        <input type='text' placeholder='Enter Registration No.' onChange={(e)=>setReg(e.target.value)}/>
-       <input type='text' placeholder='Enter your aadhar number' onChange={(e)=>setAadhar(e.target.value)}/>
+       <input type='text' placeholder='Enter  aadhar number' onChange={(e)=>setAadhar(e.target.value)}/>
        <input type='text' placeholder='Enter wallet address' onChange={(e)=>{setWadd(e.target.value)}}/>
        <button onClick={Register}>Register</button>
 
