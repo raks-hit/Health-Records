@@ -96,8 +96,8 @@ const contract=new ethers.Contract(cadd,Abi,signer);
 <Router>
 
 <Routes>
-   {/* <Route exact path="/"  element={<Login/>}/> */}
-   <Route exact path="/"  element={<Home/>}/>
+   <Route exact path="/"  element={<Login/>}/>
+   <Route exact path="/Home"  element={<Home/>}/>
    <Route exact path="/Doctor" element={<Doctor/>}/>
     <Route exact path="/RegisterDoctor" element={<RegisterDoctor/>}/>
    <Route exact path="/Patient" element={<Patient/>}/>
