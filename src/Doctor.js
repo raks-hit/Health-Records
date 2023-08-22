@@ -5,12 +5,14 @@ import {ethers} from 'ethers';
 import { AppState } from "./App";
 import Abi from './Records.json'
 import "./components/Allcss.css"
+const User=createContext();
 export const Doctor = () => {
     const [aadhar,setAadhar]=useState();
     const App = useContext(AppState);
     const [add,setAdd]=useState(false);
     // const ethereum=App.ethereum;
     // const cadd=App.cadd;
+    // const [user,setUser]=useState("");
     const [pDetails,setPatientDetails]=useState([]);
     const [data,setPatientData]=useState([]);
     // const cadd="0xc9D2f452eA84F06d36fa86850A8cDdEF79A42524";
@@ -26,6 +28,7 @@ export const Doctor = () => {
         const contract=new ethers.Contract(cadd,Abi,signer);
         const acc=await contract.getAccountByAadhar(aadhar);
         console.log(acc);
+        App.setUser(acc);
         const ydata=await contract.getPatientData(acc);
         const xdata=await contract.getDetails(acc);
         console.log(xdata.name.length);
@@ -60,7 +63,10 @@ export const Doctor = () => {
     // },[ethereum])
    
   return (
+    <>
+    {/* <User.Provider value={{user}}> */}
     <div className='root'>
+     
     <div className='align'>
         <input type="number" placeholder='Enter Aadhar number of Patient' onChange={(e)=>{
           setAadhar(e.target.value)
@@ -139,6 +145,10 @@ export const Doctor = () => {
            
         </div>
     </div>
+   
     </div>
+    {/* </User.Provider> */}
+    </>
   )
 }
+export {User};

@@ -315,3 +315,8 @@ td div{
   color: #333;
   font-style: italic;
 }
+.spinner-loading h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

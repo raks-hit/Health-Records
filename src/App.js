@@ -34,6 +34,7 @@ function App() {
   const [account,setAccount]=useState("");
   const [web3, setWeb3] = useState(new Web3(window.ethereum))
   const [allow,setAllow]=useState(false);
+  const [user,setUser]=useState("");
 // const [loading,setLoading]=useState(true);
 const provider = new ethers.providers.Web3Provider(ethereum);
 const signer=provider.getSigner();
@@ -90,7 +91,7 @@ const contract=new ethers.Contract(cadd,Abi,signer);
   return (
     <>
      
-    <AppState.Provider value={{ethereum ,cadd,login,setlogin,setAccounts,accounts,web3,setWeb3,provider,signer,contract,account,isDoc,owner,allow}}>
+    <AppState.Provider value={{ethereum ,cadd,login,setlogin,setAccounts,accounts,web3,setWeb3,provider,signer,contract,account,isDoc,owner,allow,user,setUser}}>
    
         
 <Router>

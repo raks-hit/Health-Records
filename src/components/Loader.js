@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./Allcss.css"
 function Loader() {
     return (
         <div>

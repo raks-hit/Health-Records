@@ -15,6 +15,8 @@ export const Patient = () => {
   const [pDetails,setPatientDetails]=useState([]);
   const [data,setPatientData]=useState([]);
   const [nodata,setnodata]=useState(false);
+  // const [user,setUser]=useState("");
+  // const [aadhar,setAadhar]=useState("");
     // const getDetails=async()=>{
     //     console.log(App.ethereum)
     //     console.log(aadhar);
@@ -35,6 +37,7 @@ export const Patient = () => {
                 const data=await contract.getDetails(accounts[0]);
                 // const acc=await contract.getAccountByAadhar(aadhar);
                 // console.log(acc);
+                // setUser(acc);
                 const ydata=await contract.getPatientData(accounts[0]);
                 
                 var y = [...ydata].reverse();

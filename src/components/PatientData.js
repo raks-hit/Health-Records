@@ -3,6 +3,7 @@ import '../App.css';
 // import { Button, Form } from 'react-bootstrap';
 // import { Link } from 'react-router-dom'
 import {useState,useContext} from 'react';
+import { User } from '../Doctor';
 import {ethers} from 'ethers';
 import { AppState } from "../App";
 import Loader from './Loader'
@@ -23,11 +24,14 @@ const ipfs = create({
     },
   })
 export const PatientData = () => {
+  const App2=useContext(User);
     const App = useContext(AppState);
     const ethereum=App.ethereum;
     const cadd=App.cadd;
     const [desc,setDesc]=useState("");
     const [doc,setDoc]=useState("");
+    const [cid,setCid]=useState("");
+const [transaction,setTransaction]=useState("");
    
     const [date,setDate]=useState("");
     
@@ -40,6 +44,7 @@ export const PatientData = () => {
         const accounts = await ethereum.request({method: "eth_requestAccounts"});
         console.log(accounts[0]);
         console.log(ethers);
+        console.log("hello" + App.user);
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer=provider.getSigner();
         const contract=new ethers.Contract(cadd,Abi,signer);
@@ -50,6 +55,22 @@ export const PatientData = () => {
    
    
       try {
+        const formData = new FormData();
+        formData.append("file",file);
+        const response = await fetch('https://server-pi-gilt.vercel.app/upload',{
+            method:'POST',
+            body:formData
+          
+        }).then(response=>response.json())
+        .then(data=>{ 
+           setCid(data.cid);
+           setTransaction(data.transactionHash)
+          console.log("this is" + data.cid)
+          console.log(data.transactionHash)
+        })
+        .catch(error=>{
+            console.error(error);
+        })
         const added = await ipfs.add(file)
         const url = `https://infura-ipfs.io/ipfs/${added.path}`
         ipfsId = `${added.path}`;
