@@ -68,7 +68,7 @@ export const Patient = () => {
         <button type='submit' onClick={getDetails}>Get Details</button> */}
 
         <div className='alignp2'>
-<div className='head'>Your Data</div>
+{/* <div className='head'>Your Data</div> */}
             
         <div className='alignp3'>
                 {/* <p className='idata'>Name:</p><p className='pdata'>{pDetails.name}</p>
@@ -101,35 +101,56 @@ export const Patient = () => {
 
 
         </div>
-        <div className='tmar'>
- <table>
-  <tr>
-    <th>S.No</th>
-    <th>Description</th>
-    <th>Physician</th>
-    <th>Date</th>
-    <th>Attachment</th>
-  </tr>
-  {
-    nodata ?
-    <div>No data</div>
-    :
-    data.map((e)=>{
-      return (
-        <tr>
-        <td>{e.sno.toString()}</td>
-        <td>{e.description}</td>
-        <td>{e.doctor}</td>
-        <td>{e.date}</td>
-        <td><a href={`https://infura-ipfs.io/ipfs/${e.hash}`}>Click here</a></td>
-      </tr>
-      )
-    })
-  }
-
+        <div className='tab2'>
   
-</table>
-</div>
+  <div className="overflow-x-auto">
+  <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+      <thead className="ltr:text-left rtl:text-right">
+        <tr>
+          <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            S.No
+          </th>
+          <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            Description
+          </th>
+          <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            Physician
+          </th>
+          <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            Date
+          </th>
+          <th className="px-4 py-2">Attachment</th>
+        </tr>
+      </thead>
+  
+  {
+  data.map((e)=>{
+      return(
+        <tbody className="divide-y divide-gray-200">
+        
+        <tr>
+          <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {e.sno.toString()}
+          </td>
+          <td className="whitespace-nowrap px-4 py-2 text-gray-700">{e.description}</td>
+          <td className="whitespace-nowrap px-4 py-2 text-gray-700">{e.doctor}</td>
+          <td className="whitespace-nowrap px-4 py-2 text-gray-700">{e.date}</td>
+          <td className="whitespace-nowrap px-4 py-2">
+            <a
+              href={`https://infura-ipfs.io/ipfs/${e.hash}`}
+              className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+            >
+              View
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      )
+  
+  })}
+  </table>
+  </div>
+  </div>
     </div>
     :
     <div>Please login first</div> 

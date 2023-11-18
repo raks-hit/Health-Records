@@ -10,11 +10,13 @@ import {
   Route,
   
 } from "react-router-dom";
+import { Navbar } from './components/Navbar';
 import React, { useEffect } from 'react'
+import { First } from './components/First';
 import { ethers } from 'ethers';
 import "./components/Allcss.css"
 // import {  Navigate } from 'react-router-dom'
-
+import { Sidebar } from './components/Sidebar';
 // import {Metamask} from './components/Metamask'
 import { PatientData } from './components/PatientData';
 import { Home } from './components/Home';
@@ -22,6 +24,7 @@ import { Patient } from './components/Patient';
 import { Doctor } from './Doctor';
 import { RegisterDoctor } from './RegisterDoctor';
 import { RegisterPatient } from './RegisterPatient';
+// import { First } from './components/First';
 const AppState = createContext();
 
 function App() {
@@ -34,7 +37,9 @@ function App() {
   const [account,setAccount]=useState("");
   const [web3, setWeb3] = useState(new Web3(window.ethereum))
   const [allow,setAllow]=useState(false);
+  const [adac,setadac]=useState("");
   const [user,setUser]=useState("");
+  const[aadhar,setAadhar]=useState("");
 // const [loading,setLoading]=useState(true);
 const provider = new ethers.providers.Web3Provider(ethereum);
 const signer=provider.getSigner();
@@ -91,7 +96,7 @@ const contract=new ethers.Contract(cadd,Abi,signer);
   return (
     <>
      
-    <AppState.Provider value={{ethereum ,cadd,login,setlogin,setAccounts,accounts,web3,setWeb3,provider,signer,contract,account,isDoc,owner,allow,user,setUser}}>
+    <AppState.Provider value={{ethereum ,cadd,login,setlogin,setAccounts,accounts,web3,setWeb3,provider,signer,contract,account,isDoc,owner,allow,user,setUser,aadhar,setAadhar,adac,setadac}}>
    
         
 <Router>

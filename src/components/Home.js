@@ -5,11 +5,12 @@ import  { useContext, useState } from 'react'
 import img2 from "../assets/img3.jpeg"
 import "./Allcss.css"
 import { Link} from 'react-router-dom'
+import { Sidebar } from './Sidebar';
 // import MetamaskPNG from "../assets/metamask.png"
 // import AppPNG from "../assets/app.png"
 import { AppState } from '../App';
 
-
+import { Navbar } from './Navbar';
 // import { Apps } from './Metamask';
 export const Home = () => {
   
@@ -54,39 +55,70 @@ fetch();
   return (
 <>
 <div className="login-page">
-       <header>
+       {/* <header>
         <h1 className="logo">Medical Records</h1>
            <nav>
-              <ul>
+              <ul> */}
               {/* <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Services</a></li>
                  <li><a href="#">Contact</a></li> */}
-                 <li><button onClick={handleDisconnect}>Disconnect Wallet </button></li>
+                 {/* <li><button onClick={handleDisconnect}>Disconnect Wallet </button></li>
              </ul>
             </nav>
-       </header>
+       </header> */}
+       <Navbar/>
+       {/* <Sidebar/> */}
        <div className='imgx'>
 <img className='imgxc' src={img2} alt=''/>
 </div>
-    <div className='hbtn'>
+<div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 buttons">
       { isDoc ?
-     <Link className="hometag" to={'/Doctor'}>Login as Doctor</Link>
+     <Link  to={'/Doctor'}>
+     <button
+     type="button"
+     className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+     
+   >
+     Login as Doctor
+   </button>
+   </Link>
      :
      <div></div>
      }
     
     {
       own ?
-      <Link className="hometag" to={'/RegisterDoctor'}>Register Doctor</Link>
+      <Link  to={'/RegisterDoctor'}>
+         <button
+        type="button"
+        className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+      >
+        Register as Doctor
+      </button>
+      </Link>
       :
       <div></div>
     }
     {
       pat ?
-      <Link className='hometag' to={'/Patient'}>Your Data</Link>
+      <Link  to={'/Patient'}>
+         <button
+        type="button"
+        className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+      >
+        Your Data
+      </button>
+      </Link>
       :
-      <Link className="hometag" to={'/RegisterPatient'}>Register Patient</Link>
+      <Link to={'/RegisterPatient'}>
+         <button
+        type="button"
+        className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+      >
+        Regsiter Patient
+      </button>
+      </Link>
     }
     {/* <Link className="hometag" to={'/Patient'}>Login as Patient</Link> */}
     {/* <Link to={'/Doctor'}>Doctor</Link> */}
