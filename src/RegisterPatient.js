@@ -4,6 +4,8 @@ import {ethers} from 'ethers';
 import { AppState } from "./App";
 import Abi from './Records.json'
 import Loader from './components/Loader'
+import "./components/Allcss.css"
+import "./App.css";
 export const RegisterPatient = () => {
     const App = useContext(AppState);
     const ethereum=App.ethereum;

@@ -1,5 +1,10 @@
 [
 	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "string",
@@ -28,7 +33,7 @@
 			},
 			{
 				"internalType": "address",
-				"name": "dadd",
+				"name": "dacc",
 				"type": "address"
 			}
 		],
@@ -52,11 +57,6 @@
 			{
 				"internalType": "string",
 				"name": "email",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "hadd",
 				"type": "string"
 			},
 			{
@@ -114,9 +114,37 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "qual",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "hadd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "regtno",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "aadhar",
+				"type": "string"
+			}
+		],
+		"name": "applyDoctor",
+		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "constructor"
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -166,11 +194,6 @@
 					},
 					{
 						"internalType": "string",
-						"name": "hadd",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
 						"name": "mobile",
 						"type": "string"
 					},
@@ -181,57 +204,6 @@
 					}
 				],
 				"internalType": "struct project.Patient",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "dadd",
-				"type": "address"
-			}
-		],
-		"name": "getdocDetails",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "qualification",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "haddress",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "regtno",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "aadhar",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "wadd",
-						"type": "address"
-					}
-				],
-				"internalType": "struct project.Doctor",
 				"name": "",
 				"type": "tuple"
 			}
@@ -331,6 +303,92 @@
 				"internalType": "struct project.PatientData[]",
 				"name": "",
 				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getapplyDetails",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "qualification",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "haddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "regtno",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "aadhar",
+						"type": "string"
+					}
+				],
+				"internalType": "struct project.Apply[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "dadd",
+				"type": "address"
+			}
+		],
+		"name": "getdocDetails",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "qualification",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "haddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "regtno",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "aadhar",
+						"type": "string"
+					}
+				],
+				"internalType": "struct project.Doctor",
+				"name": "",
+				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",

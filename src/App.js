@@ -23,13 +23,16 @@ import { Home } from './components/Home';
 import { Patient } from './components/Patient';
 import { Doctor } from './Doctor';
 import { RegisterDoctor } from './RegisterDoctor';
+import { Apply } from './Apply';
+import { ApplyData } from './components/ApplyData';
 import { RegisterPatient } from './RegisterPatient';
 // import { First } from './components/First';
 const AppState = createContext();
 
 function App() {
   // const cadd="0xc9D2f452eA84F06d36fa86850A8cDdEF79A42524";
-  const cadd="0xd488eE3F222e0367299B551feF757C46f740Ca1d";
+  // const cadd="0xd488eE3F222e0367299B551feF757C46f740Ca1d";
+  const cadd ="0x5F515606Fa353cB44cbe0ec9138AFB4c694F4420"
   const {ethereum}=window;
   const [login,setlogin]=useState(false);
   const [owner,setOwner]=useState("");
@@ -109,6 +112,8 @@ const contract=new ethers.Contract(cadd,Abi,signer);
    <Route exact path="/Patient" element={<Patient/>}/>
    <Route exact path="/PatientData" element={<PatientData/>}/>
    <Route exact path="/RegisterPatient" element={<RegisterPatient/>}/>
+   <Route exact path="/Apply" element={<Apply/>}/>
+   <Route exact path="/ApplyData" element={<ApplyData/>}/>
   
 </Routes>
 </Router>

@@ -64,3 +64,8 @@
 .hometag{
   margin: 2em;
 }
+.align input{
+  margin: 1em;
+  width: 50%;
+  border-radius: 2em;
+}
